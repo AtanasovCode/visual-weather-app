@@ -9,8 +9,10 @@ export const useWeatherStore = create((set) => ({
     //weather data
     weatherData: {},
     setWeatherData: (value) => set({ weatherData: value }),
-    weatherDataDays: [],
-    setWeatherDataDays: (weatherDataDays) => set({ weatherDataDays }),
+    currentWeather: [],
+    setCurrentWeather: (currentWeather) => set({ currentWeather }),
+    weatherDays: [],
+    setWeatherDays: (weatherDays) => set({ weatherDays }),
 
     units: "c",
     changeUnits: () => set((state) => ({ units: state.units === "c" ? "f" : "c" })),

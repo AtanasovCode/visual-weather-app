@@ -3,17 +3,17 @@ import { useEffect } from "react";
 import { useWeatherStore } from "./useWeatherStore";
 
 //importing sections
-import Hero from "./components/Hero";
+import Hero from "./sections/Hero";
+import Weather from "./sections/Weather";
 
 const App = () => {
 
   const {
-    loading,
     setLoading,
     weatherData,
     setWeatherData,
-    weatherDataDays,
-    setWeatherDataDays,
+    setCurrentWeather,
+    setWeatherDays,
     location,
     superSecretKey,
   } = useWeatherStore();
@@ -37,8 +37,9 @@ const App = () => {
 
       console.log(response);
 
-      setWeatherData(response.currentConditions);
-      setWeatherDataDays(response.days);
+      setWeatherData(response);
+      setCurrentWeather(response.currentConditions);
+      setWeatherDays(response.days);
     } catch (err) {
       console.error(err.message);
     } finally {
@@ -51,7 +52,10 @@ const App = () => {
       bg-background text-text min-h-[100dvh] 
       flex flex-col items-center justify-center
     ">
-      <Hero />
+      <Hero getWeatherData={getWeatherData} />
+      {
+        weatherData.currentConditions?.temp && <Weather />
+      }
     </div>
   )
 }

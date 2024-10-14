@@ -1,7 +1,7 @@
 import { useWeatherStore } from "../useWeatherStore";
 import { Umbrella } from "@phosphor-icons/react";
 
-const Hero = () => {
+const Hero = ({ getWeatherData }) => {
 
     const {
         location,
@@ -17,7 +17,7 @@ const Hero = () => {
             <div className="flex flex-col items-center justify-center w-full">
                 <div className="mb-6 text-background flex items-center justify-center">
                     <div className="mr-2 flex items-center justify-center w-16 lg:w-24">
-                        <Umbrella 
+                        <Umbrella
                             size="100%"
                             weight="fill"
                             color="#FFF"
@@ -43,8 +43,8 @@ const Hero = () => {
                     <input
                         type="button"
                         value="See Weather"
-                        onClick={() => console.log("Click")}
-                        className="py-2 bg-secondary rounded-xl rounded-bl-none rounded-tl-none flex-1"
+                        onClick={() => location !== "" && getWeatherData()}
+                        className="py-2 bg-secondary rounded-xl rounded-bl-none rounded-tl-none flex-1 cursor-pointer"
                     />
                 </div>
             </div>
