@@ -6,27 +6,16 @@ export const useWeatherStore = create((set) => ({
     loading: false,
     setLoading: (loading) => set({ loading }),
 
+    //weather data
     weatherData: {},
     setWeatherData: (value) => set({ weatherData: value }),
+    weatherDataDays: [],
+    setWeatherDataDays: (weatherDataDays) => set({ weatherDataDays }),
 
     units: "c",
     changeUnits: () => set((state) => ({ units: state.units === "c" ? "f" : "c" })),
 
-    location: "London",
+    location: "",
     changeLocation: (location) => set({ location }),
-
-    //response values
-    temp: "",
-    setTemp: (temp) => set({ temp }),
-    conditions: "",
-    setConditions: (conditions) => set({ conditions }),
-    feelsLike: "",
-    setFeelsLike: (feelsLike) => set({ feelsLike }),
-    humidity: "",
-    setHumidity: (humidity) => set({ humidity }),
-    precip: 0,
-    setPrecip: (precip) => set({ precip }),
-    icon: "",
-    setIcon: (icon) => set({ icon }),
 
 }))
