@@ -2,7 +2,9 @@ import { useWeatherStore } from "../useWeatherStore";
 
 import CurrentWeather from "../components/CurrentWeather";
 
-const Weather = () => {
+const Weather = ({
+    weatherRef
+}) => {
 
     const {
         weatherData,
@@ -10,6 +12,7 @@ const Weather = () => {
 
     return (
         <div
+            ref={weatherRef}
             id="weather"
             className="flex flex-col items-start justify-start py-12 px-6
                 min-h-[100dvh] w-full bg-background text-text"

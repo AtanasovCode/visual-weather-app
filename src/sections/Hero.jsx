@@ -1,11 +1,13 @@
 import { useWeatherStore } from "../useWeatherStore";
 import { Umbrella } from "@phosphor-icons/react";
+import LoadingAnim from "../components/LoadingAnim";
 
 const Hero = ({ getWeatherData }) => {
 
     const {
         location,
         changeLocation,
+        loading,
     } = useWeatherStore();
 
     return (
@@ -40,12 +42,21 @@ const Hero = ({ getWeatherData }) => {
                             bg-transparent focus:border-none outline-none flex-1
                         "
                     />
-                    <input
-                        type="button"
-                        value="See Weather"
-                        onClick={() => location !== "" && getWeatherData()}
-                        className="py-2 bg-secondary rounded-xl rounded-bl-none rounded-tl-none flex-1 cursor-pointer"
-                    />
+                    <div className="flex-1 relative">
+                        {
+                            loading ?
+                                <div className="w-full py-2 bg-secondary flex items-center justify-center">
+                                    <LoadingAnim />
+                                </div>
+                                :
+                                <input
+                                    type="button"
+                                    value={loading ? "" : "See Weather"}
+                                    onClick={() => location !== "" && getWeatherData()}
+                                    className="bg-secondary py-2 rounded-xl rounded-bl-none rounded-tl-none w-full h-full cursor-pointer"
+                                />
+                        }
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,4 @@
-import { FileCss, Cat } from "@phosphor-icons/react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useWeatherStore } from "./useWeatherStore";
 
 //importing sections
@@ -17,6 +16,12 @@ const App = () => {
     location,
     superSecretKey,
   } = useWeatherStore();
+
+  const weatherRef = useRef(null);
+
+  const scrollToSection = () => {
+    weatherRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const fetchWeatherData = async () => {
     try {
@@ -44,8 +49,15 @@ const App = () => {
       console.error(err.message);
     } finally {
       setLoading(false);
+      scrollToSection();
     }
   }
+
+  useEffect(() => {
+    if (weatherData.currentConditions?.temp && weatherRef.current) {
+      weatherRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [weatherData]);
 
   return (
     <div className="
@@ -54,7 +66,7 @@ const App = () => {
     ">
       <Hero getWeatherData={getWeatherData} />
       {
-        weatherData.currentConditions?.temp && <Weather />
+        weatherData.currentConditions?.temp && <Weather weatherRef={weatherRef} />
       }
     </div>
   )
