@@ -49,7 +49,6 @@ const App = () => {
       console.error(err.message);
     } finally {
       setLoading(false);
-      scrollToSection();
     }
   }
 

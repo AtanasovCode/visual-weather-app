@@ -3,10 +3,10 @@ import { getIcon, floorNumber } from "../Utils";
 
 const TempAndLoc = () => {
 
-    const { weatherData, currentWeather } = useWeatherStore();
+    const { weatherData, currentWeather, weatherDays } = useWeatherStore();
 
     return (
-        <div className="flex flex-col items-start justify-center">
+        <div className="flex flex-col items-start justify-center w-full">
             <div className="flex items-center justify-center">
                 <div className="text-2xl lg:text-4xl font-semibold">
                     {weatherData.resolvedAddress}
@@ -27,6 +27,9 @@ const TempAndLoc = () => {
                     </div>
                     <div className="text-md lg:text-lg">
                         Feels Like {floorNumber(currentWeather.feelslike)}°C
+                    </div>
+                    <div className="flex items-center justify-cente text-white text-xs md:text-md xl:text-base mt-1">
+                        {weatherDays[0].description}
                     </div>
                 </div>
             </div>

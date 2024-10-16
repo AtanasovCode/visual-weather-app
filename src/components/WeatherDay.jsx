@@ -30,7 +30,7 @@ const WeatherDay = ({
                         {floorNumber(temp)}<span className="text-md">°C</span>
                     </div>
                 </div>
-                <div className="flex-1 flex flex-col items-start justify-center">
+                <div className="flex-1 flex flex-col items-center justify-center">
                     <div className="flex items-center justify-center mb-2">
                         <div className="flex items-center justify-cneter mr-1 w-5">
                             <ThermometerHot size="100%" weight="fill" color="#FFF" />

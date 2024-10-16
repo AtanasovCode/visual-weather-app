@@ -26,7 +26,7 @@ const CurrentWeather = () => {
         ">
             <TempAndLoc />
             <div className="
-                    grid grid-cols-2 gap-2 lg:gap-x-[10%] lg:gap-y-6 justify-items-center mt-6 w-full
+                    grid grid-cols-2 gap-2 lg:gap-6 justify-items-center mt-6 w-full
                 ">
                 <WeatherBox
                     icon={<Drop size="100%" weight="fill" color="#fff" />}
