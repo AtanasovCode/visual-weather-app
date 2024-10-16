@@ -77,3 +77,7 @@ export const getBackgroundImage = (iconType) => {
         }
     }
 }
+
+export const floorNumber = (number)=> {
+    return Math.floor(number);
+}

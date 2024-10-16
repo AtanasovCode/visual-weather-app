@@ -1,18 +1,10 @@
 import { useWeatherStore } from "../useWeatherStore";
 import { getBackgroundImage } from "../Utils";
 
-import {
-    Drop,
-    Cloud,
-    SunHorizon,
-    Sun,
-    CloudRain,
-    Wind,
-    ThermometerSimple,
-} from "@phosphor-icons/react";
 
 import CurrentWeather from "../components/CurrentWeather";
-import WeatherBox from "../components/WeatherBox";
+import WeatherDay from "../components/WeatherDay";
+
 
 const Weather = ({
     weatherRef
@@ -21,6 +13,7 @@ const Weather = ({
     const {
         weatherData,
         currentWeather,
+        weatherDays,
     } = useWeatherStore();
 
     return (
@@ -36,6 +29,23 @@ const Weather = ({
         >
             <div className="flex flex-col items-center justify-center w-full">
                 <CurrentWeather />
+            </div>
+            <div className="grid grid-cols-7 gap-6">
+                {
+                    weatherDays.map((day, index) => {
+                        while (index < 7) {
+                            return (
+                                <WeatherDay
+                                    date={day.datetime}
+                                    temp={day.temp}
+                                    icon={day.icon}
+                                    minTemp={day.tempmin}
+                                    maxTemp={day.tempmax}
+                                />
+                            );
+                        }
+                    })
+                }
             </div>
         </div>
     );

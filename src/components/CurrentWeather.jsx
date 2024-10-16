@@ -1,5 +1,5 @@
 import { useWeatherStore } from "../useWeatherStore";
-import { getIcon } from "../Utils";
+import { floorNumber } from "../Utils";
 import WeatherBox from "./WeatherBox";
 import TempAndLoc from "./TempAndLoc";
 
@@ -32,7 +32,7 @@ const CurrentWeather = () => {
                 <WeatherBox
                     icon={<Drop size="100%" weight="fill" color="#fff" />}
                     title="Humidity"
-                    value={`${currentWeather.humidity}%`}
+                    value={`${floorNumber(currentWeather.humidity)}%`}
                 />
                 <WeatherBox
                     icon={<Sun size="100%" weight="fill" color="#fff" />}
@@ -42,7 +42,7 @@ const CurrentWeather = () => {
                 <WeatherBox
                     icon={<CloudRain size="100%" weight="fill" color="#fff" />}
                     title="Precipitation"
-                    value={`${currentWeather.precip}%`}
+                    value={`${floorNumber(currentWeather.precip)}%`}
                 />
                 <WeatherBox
                     icon={<SunHorizon size="100%" weight="fill" color="#fff" />}
@@ -52,7 +52,7 @@ const CurrentWeather = () => {
                 <WeatherBox
                     icon={<Wind size="100%" weight="fill" color="#fff" />}
                     title="Wind Speed"
-                    value={`${currentWeather.windspeed}km/h`}
+                    value={`${floorNumber(currentWeather.windspeed)}km/h`}
                 />
                 <WeatherBox
                     icon={<ThermometerSimple size="100%" weight="fill" color="#fff" />}

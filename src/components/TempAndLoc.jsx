@@ -1,5 +1,5 @@
 import { useWeatherStore } from "../useWeatherStore";
-import { getIcon } from "../Utils";
+import { getIcon, floorNumber } from "../Utils";
 
 const TempAndLoc = () => {
 
@@ -20,13 +20,13 @@ const TempAndLoc = () => {
                 </div>
                 <div className="flex flex-col items-start justify-center">
                     <div className="text-4xl lg:text-6xl font-medium">
-                        {currentWeather.temp}<span className="font-normal text-xl lg:text-3xl">°C</span>
+                        {floorNumber(currentWeather.temp)}<span className="font-normal text-xl lg:text-3xl">°C</span>
                     </div>
                     <div className="text-md lg:text-lg font-semibold">
                         {currentWeather.conditions}
                     </div>
                     <div className="text-md lg:text-lg">
-                        Feels Like {currentWeather.feelslike}°C
+                        Feels Like {floorNumber(currentWeather.feelslike)}°C
                     </div>
                 </div>
             </div>

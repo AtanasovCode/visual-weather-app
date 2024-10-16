@@ -1,9 +1,3 @@
-import { useWeatherStore } from "../useWeatherStore";
-import {
-    DropSimple,
-    Wind,
-    CloudRain,
-} from "@phosphor-icons/react";
 
 const WeatherBox = ({
     title,
