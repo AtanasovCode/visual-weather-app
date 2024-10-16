@@ -4,6 +4,7 @@ import { useWeatherStore } from "./useWeatherStore";
 //importing sections
 import Hero from "./sections/Hero";
 import Weather from "./sections/Weather";
+import ErrorHandling from "./components/ErrorHandling";
 
 const App = () => {
 
@@ -15,6 +16,8 @@ const App = () => {
     setWeatherDays,
     location,
     superSecretKey,
+    error,
+    setError,
   } = useWeatherStore();
 
   const weatherRef = useRef(null);
@@ -28,10 +31,17 @@ const App = () => {
       setLoading(true);
 
       const data = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&include=current%2Cdays&key=${superSecretKey}&contentType=json`);
+
+      if (!data.ok) {
+        setError(true);
+        throw new Error(`Error: ${data.status} - ${data.statusText}`);
+      }
+
       const weatherResponse = await data.json();
 
       return weatherResponse;
     } catch (err) {
+      setError(true);
       console.error(err.message);
     }
   }
@@ -40,12 +50,13 @@ const App = () => {
     try {
       const response = await fetchWeatherData();
 
-      console.log(response);
+      if (!response) return;
 
       setWeatherData(response);
       setCurrentWeather(response.currentConditions);
       setWeatherDays(response.days);
     } catch (err) {
+      setError(true);
       console.error(err.message);
     } finally {
       setLoading(false);
@@ -59,16 +70,20 @@ const App = () => {
   }, [weatherData]);
 
   return (
-    <div className="
-      bg-background text-text min-h-[100dvh] 
-      flex flex-col items-center justify-center
-    ">
-      <Hero getWeatherData={getWeatherData} />
+    <>
       {
-        weatherData.currentConditions?.temp && <Weather weatherRef={weatherRef} />
+        error ?
+          <ErrorHandling />
+          :
+          <div className="min-h-[100dvh] flex flex-col items-center justify-center">
+            <Hero getWeatherData={getWeatherData} />
+            {
+              weatherData.currentConditions?.temp && <Weather weatherRef={weatherRef} />
+            }
+          </div>
       }
-    </div>
-  )
+    </>
+  );
 }
 
 export default App

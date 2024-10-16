@@ -20,4 +20,9 @@ export const useWeatherStore = create((set) => ({
     location: "",
     changeLocation: (location) => set({ location }),
 
+    //error handling
+    error: false,
+    setError: (error) => set({ error }),
+    errorMessage: "",
+    setErrorMessage: (errorMessage) => set({ errorMessage }), 
 }))
