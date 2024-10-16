@@ -1,5 +1,5 @@
 import { useWeatherStore } from "../useWeatherStore";
-import { floorNumber } from "../Utils";
+import { floorNumber, getWindSpeed } from "../Utils";
 import WeatherBox from "./WeatherBox";
 import TempAndLoc from "./TempAndLoc";
 
@@ -16,6 +16,7 @@ const CurrentWeather = () => {
 
     const {
         weatherData,
+        units,
         currentWeather,
     } = useWeatherStore();
 
@@ -51,7 +52,7 @@ const CurrentWeather = () => {
                 <WeatherBox
                     icon={<Wind size="100%" weight="fill" color="#fff" />}
                     title="Wind Speed"
-                    value={`${floorNumber(currentWeather.windspeed)}km/h`}
+                    value={`${floorNumber(getWindSpeed(units, currentWeather.windspeed))}${units === "c" ? "km/h" : "mph"}`}
                 />
                 <WeatherBox
                     icon={<ThermometerSimple size="100%" weight="fill" color="#fff" />}

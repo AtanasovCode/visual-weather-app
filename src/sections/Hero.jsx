@@ -8,14 +8,37 @@ const Hero = ({ getWeatherData }) => {
         location,
         changeLocation,
         loading,
+        units,
+        changeUnits,
     } = useWeatherStore();
+
+    const activeBackground = (unit) => { return unit === units ? "bg-secondary" : "bg-transparent" }
 
     return (
         <div className="
             min-h-[100dvh] w-full
-            flex items-center justify-center
+            flex items-center justify-center relative
             bg-hero bg-center bg-cover bg-no-repeat
         ">
+            <div 
+                className="
+                    absolute top-[3.5%] right-[5%] bg-background rounded-xl cursor-pointer
+                    flex items-center justify-center overflow-hidden select-none"
+                onClick={() => changeUnits()}
+            >
+                <div className={`
+                        flex items-center justify-center text-xs mr-2 px-3 py-2
+                        ${activeBackground("c")}
+                `}>
+                    C
+                </div>
+                <div className={`
+                        flex items-center justify-center text-xs px-3 py-2
+                        ${activeBackground("f")}
+                    `}>
+                    F
+                </div>
+            </div>
             <div className="flex flex-col items-center justify-center w-full">
                 <div className="mb-6 text-background flex items-center justify-center">
                     <div className="mr-2 flex items-center justify-center w-16 lg:w-24">

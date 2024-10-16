@@ -1,5 +1,5 @@
 import { useWeatherStore } from "../useWeatherStore";
-import { getIcon, floorNumber, formatDateToDay } from "../Utils";
+import { getIcon, floorNumber, formatDateToDay, getTemp } from "../Utils";
 import { ThermometerCold, ThermometerHot, Drop } from "@phosphor-icons/react";
 
 
@@ -12,6 +12,10 @@ const WeatherDay = ({
     precip,
     date,
 }) => {
+
+    const {
+        units,
+    } = useWeatherStore();
 
     return (
         <div className="
@@ -27,7 +31,7 @@ const WeatherDay = ({
                         {getIcon(icon, "100%", "fill", "#FFF")}
                     </div>
                     <div className="font-semibold text-xl">
-                        {floorNumber(temp)}<span className="text-md">°C</span>
+                        {getTemp(units, temp)}<span className="text-md uppercase">°{units}</span>
                     </div>
                 </div>
                 <div className="flex-1 flex flex-col items-center justify-center">
@@ -36,7 +40,8 @@ const WeatherDay = ({
                             <ThermometerHot size="100%" weight="fill" color="#FFF" />
                         </div>
                         <div className="text-sm">
-                            Max {floorNumber(maxTemp)}°C
+                            Max {getTemp(units, maxTemp)}
+                            <span className="uppercase">°{units}</span>
                         </div>
                     </div>
                     <div className="flex items-center justify-center mb-2">
@@ -44,7 +49,8 @@ const WeatherDay = ({
                             <ThermometerCold size="100%" weight="fill" color="#FFF" />
                         </div>
                         <div className="text-sm">
-                            Min {floorNumber(minTemp)}°C
+                            Min {getTemp(units, minTemp)}
+                            <span className="uppercase">°{units}</span>
                         </div>
                     </div>
                     <div className="flex items-center justify-center">

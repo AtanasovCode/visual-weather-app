@@ -87,3 +87,22 @@ export const formatDateToDay = (date) => {
     const parsedDate = typeof date === 'string' ? parseISO(date) : date;
     return format(parsedDate, "EEE, d");
 }
+
+//converts temp to C or F depending on user choice
+export const getTemp = (unit, temp) => {
+    if(unit === "c") {
+        return floorNumber(temp);
+    } else {
+        const f = (temp * 9) / 5 + 32;
+
+        return floorNumber(f);
+    }
+}
+
+export const getWindSpeed = (unit, speed) => {
+    if(unit === "c") {
+        return speed;
+    } else {
+        return speed * 0.621371;
+    }
+}
