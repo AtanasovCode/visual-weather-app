@@ -28,12 +28,13 @@ const Weather = ({
             ref={weatherRef}
             id="weather"
             className={`
-                flex flex-col items-start justify-start py-12 px-6
-                min-h-[100dvh] w-full text-text
+                flex flex-col items-center justify-center py-8 px-2
+                lg:items-start lg:justify-start lg:py-12 lg:px-6
+                min-h-[100dvh] w-full
                 ${getBackgroundImage(currentWeather.icon)} bg-center bg-cover bg-no-repeat
             `}
         >
-            <div className="flex flex-col items-start justify-start">
+            <div className="flex flex-col items-center justify-center w-full">
                 <CurrentWeather />
             </div>
         </div>

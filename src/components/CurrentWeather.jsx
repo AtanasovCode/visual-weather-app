@@ -1,6 +1,7 @@
 import { useWeatherStore } from "../useWeatherStore";
 import { getIcon } from "../Utils";
 import WeatherBox from "./WeatherBox";
+import TempAndLoc from "./TempAndLoc";
 
 import { 
     SunHorizon,
@@ -20,36 +21,13 @@ const CurrentWeather = () => {
 
     return (
         <div className="
-            flex flex-col items-start justify-center flex-1 text-white
-            bg-black bg-opacity-50 p-6 rounded-xl
+            flex flex-col items-start justify-center flex-1 text-white p-4
+            w-[90%] sm:w-[90%] md:w-[70%] lg:w-auto
+            bg-black bg-opacity-50 lg:p-6 rounded-xl lg:max-w-[40rem]
         ">
-            <div className="flex flex-col items-start justify-center">
-                <div className="flex items-center justify-center">
-                    <div className="text-4xl font-semibold">
-                        {weatherData.resolvedAddress}
-                    </div>
-                </div>
-                <div className="mt-2 flex items-center justify-center">
-                    <div className="flex items-center justify-center w-[12rem] mr-4">
-                        {
-                            getIcon(currentWeather.icon, "100%", "fill", "#fff")
-                        }
-                    </div>
-                    <div className="flex flex-col items-start justify-center">
-                        <div className="text-6xl font-medium">
-                            {currentWeather.temp}<span className="font-normal text-3xl">°C</span>
-                        </div>
-                        <div className="text-lg font-semibold">
-                            {currentWeather.conditions}
-                        </div>
-                        <div className="text-lg">
-                            Feels Like {currentWeather.feelslike}°C
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <TempAndLoc />
             <div className="
-                    grid grid-cols-2 gap-x-[10%] gap-y-6 justify-items-center mt-6 w-full
+                    grid grid-cols-2 gap-2 lg:gap-x-[10%] lg:gap-y-6 justify-items-center mt-6 w-full
                 ">
                 <WeatherBox
                     icon={<Drop size="100%" weight="fill" color="#fff" />}
