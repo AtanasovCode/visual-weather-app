@@ -1,3 +1,4 @@
+import { format, parseISO } from 'date-fns';
 import {
     CloudSnow,
     CloudRain,
@@ -80,4 +81,9 @@ export const getBackgroundImage = (iconType) => {
 
 export const floorNumber = (number)=> {
     return Math.floor(number);
+}
+
+export const formatDateToDay = (date) => {
+    const parsedDate = typeof date === 'string' ? parseISO(date) : date;
+    return format(parsedDate, "EEE, d");
 }

@@ -21,9 +21,8 @@ const CurrentWeather = () => {
 
     return (
         <div className="
-            flex flex-col items-start justify-center flex-1 text-white p-4
-            w-[90%] sm:w-[90%] md:w-[70%] lg:w-auto
-            bg-black bg-opacity-50 lg:p-6 rounded-xl lg:max-w-[40rem]
+            flex flex-col items-start justify-center flex-1 text-white p-4 w-full
+            lg:flex-row bg-black bg-opacity-50 lg:p-6 rounded-xl
         ">
             <TempAndLoc />
             <div className="
