@@ -41,3 +41,39 @@ export const getIcon = (iconType, iconSize, iconWeight, iconColor) => {
         }
     }
 }
+
+
+export const getBackgroundImage = (iconType) => {
+    switch (iconType) {
+        case "snow": {
+            return 'bg-snow';
+        }
+        case "rain": {
+            return 'bg-rain';
+        }
+        case "fog": {
+            return 'bg-fog';
+        }
+        case "wind": {
+            return 'bg-cloudy'; // Assuming you want a cloudy background for wind as there is no wind image specified
+        }
+        case "cloudy": {
+            return 'bg-cloudy';
+        }
+        case "partly-cloudy-day": {
+            return 'bg-cloudy-day';
+        }
+        case "partly-cloudy-night": {
+            return 'bg-cloudy-night';
+        }
+        case "clear-day": {
+            return 'bg-clear-sky';
+        }
+        case "clear-night": {
+            return 'bg-clear-night';
+        }
+        default: {
+            return 'bg-hero'; // Fallback background
+        }
+    }
+}
