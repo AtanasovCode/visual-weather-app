@@ -1,8 +1,22 @@
-# React + Vite
+# WeaWhere - Weather info for everywhere
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How it works
 
-Currently, two official plugins are available:
+Search the city you want to see the weather in and click the button to see the current weather in that location.
+![](./src//assets/screenshots/hero.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Get the current weather info!
+
+Get all the relevant weather information about the city you searched for. Everything from the
+current temperature and what it feels like to humidity, wind speed, and even sunrise and sunset times because
+everyone needs to look at a sunset atleast once a day.
+
+![](./src/assets/screenshots/current-weather.png)
+
+## Weather info for the whole week
+
+Want to go on a run of bike ride in two days but you are not sure how the weather will be? No worries,
+WeaWhere provides relevant weather information for the whole week. Just find the day you would like to know the weather for and
+see if it will be perfect for a bike ride or a cozy blanket and hot cup of coffee.
+
+![](/src/assets/screenshots/next-week.png)
