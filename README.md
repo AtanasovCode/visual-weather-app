@@ -21,3 +21,23 @@ WeaWhere provides relevant weather information for the whole week. Just find the
 see if it will be perfect for a bike ride or a cozy blanket and hot cup of coffee.
 
 ![](/src/assets/screenshots/next-week.png)
+
+# Features
+
+## Error handling
+
+Provides error handling for incorrect city nammes or invalid input. 
+
+![](./src/assets/screenshots/error-handling.png)
+
+## Other features
+
+- Change between Celcius and Fahrenheit with the click of a button
+- Fully responsive, works on any device size
+- Loading animation while the relevant weather information is being fetched
+
+# Built with 
+
+- Reactjs
+- TailwindCSS
+- Vite
