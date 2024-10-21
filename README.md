@@ -2,7 +2,8 @@
 
 ## How it works
 
-Search the city you want to see the weather in and click the button to see the current weather in that location.
+Search for the city you want to see the weather in, and just click the button to get instant weather information.
+
 ![](./src//assets/screenshots/hero.png)
 
 ## Get the current weather info!
